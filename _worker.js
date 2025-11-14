@@ -236,7 +236,8 @@ export default {
                             else if (元素.toLowerCase().includes('://')) 其他节点.push(元素);
                             else 优选IP.push(元素);
                         }
-                        const 其他节点LINK = 其他节点.join('\n') + '\n';
+                        let 其他节点LINK = 其他节点.join('\n');
+                        if (其他节点LINK) 其他节点LINK += '\n';
                         if (!url.searchParams.has('sub') && config_JSON.优选订阅生成.local) { // 本地生成订阅
                             const 优选API的IP = await 请求优选API(优选API);
                             const 完整优选IP = [...new Set(优选IP.concat(优选API的IP))];
@@ -1825,3 +1826,4 @@ async function html1101(host, 访问IP) {
 </body>
 </html>`;
 }
+
